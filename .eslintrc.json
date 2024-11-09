@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "standard",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "plugins": ["import", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "index",
+          "object"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@app/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
